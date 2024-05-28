@@ -1,0 +1,276 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.myMain {
+  display: flex;
+  height: 100vh;
+
+  .main-left,
+  .main-center,
+  .main-right {
+    flex-basis: 33%;
+  }
+
+  .main-left {
+    background-color: magenta;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 3px;
+    position: relative;
+    padding: 3px;
+
+    .item-volado {
+      width: 0%;
+      height: 0%;
+      background-color: lime;
+      position: absolute;
+      z-index: 48;
+      animation: colorearHaciaAbajo 5s ease infinite alternate;
+    }
+
+    .cuadrado {
+      width: 100%;
+      height: 100%;
+      border: 1px solid black;
+      z-index: 50;
+      background-color: black;
+    }
+  }
+
+  .main-center {
+    align-content: center;
+    background-color: black;
+
+    .myForm {
+      width: 60%;
+      margin-inline: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      row-gap: 2rem;
+    }
+
+    .container-box {
+      position: relative;
+      width: 100%;
+    }
+
+    input,
+    span {
+      transition: .5s;
+    }
+
+    legend {
+      color: white;
+      font-size: 1.5rem;
+      font-family: arial;
+      font-weight: 900;
+      text-shadow: 0 1px 0px gray,
+        0 2px 0px gray,
+        0 3px 0px gray,
+        0 4px 0px gray,
+        0 5px 0px gray,
+        0 6px 0px gray;
+    }
+
+    input {
+      width: 100%;
+      border: 3px solid #fff4;
+      background-color: transparent;
+      border-radius: 8px;
+      padding: .7rem;
+      outline: none;
+      color: white;
+    }
+
+    span {
+      position: absolute;
+      left: 0;
+      padding: .8rem;
+      color: #fff4;
+    }
+
+    input:valid,
+    input:focus {
+      border: 3px solid #04aa6d;
+
+      +span {
+        font-size: .7rem;
+        transform: translate(.75rem, -.9rem);
+        padding: 4px 10px;
+        color: #04aa6d;
+        background-color: black;
+        letter-spacing: .2rem;
+      }
+    }
+
+    input.inva:invalid {
+      border: 3px solid #f00;
+
+      +span {
+        color: red;
+      }
+    }
+
+    input[type=submit] {
+      padding: .8rem;
+      width: 40%;
+      background-color: #04aa6d;
+      outline: none;
+      border-radius: 999px;
+      border: none;
+      transition: .5s;
+
+      &:hover {
+        filter: brightness(130%);
+      }
+    }
+  }
+
+
+  .main-right {
+    background-color: magenta;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 3px;
+    position: relative;
+    padding: 3px;
+
+    .item-volado-1,
+    .item-volado-2,
+    .item-volado-3,
+    .item-volado-4 {
+      width: 0%;
+      height: 0%;
+      background-color: lime;
+      position: absolute;
+      z-index: 48;
+      animation: item-crecido 5s ease infinite alternate both;
+    }
+
+    .item-volado-1 {
+      left: 0;
+      top: 0;
+    }
+
+    .item-volado-2 {
+      top: 0;
+      right: 0;
+    }
+
+    .item-volado-3 {
+      left: 0;
+      bottom: 0;
+    }
+
+    .item-volado-4 {
+      bottom: 0;
+      right: 0;
+    }
+
+
+
+    .cuadrado {
+      width: 100%;
+      height: 100%;
+      border: 1px solid black;
+      z-index: 50;
+      background-color: black;
+    }
+  }
+
+}
+
+@keyframes colorearHaciaAbajo {
+  0% {
+    height: 0%;
+    width: 0%;
+  }
+
+  100% {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@keyframes item-crecido {
+  0% {
+    height: 0%;
+    width: 0%;
+  }
+
+  100% {
+    height: 50%;
+    width: 50%;
+  }
+}
+
+@media (width <=1400px) {
+  .myMain {
+    .main-left {
+      display: none;
+    }
+
+    .main-center,
+    .main-right {
+      flex-basis: 50%;
+    }
+  }
+}
+
+@media (width <=1100px) and (orientation: landscape) {
+  html {
+    font-size: 11px;
+  }
+
+  .myMain {
+    .main-center {
+      .myForm {
+
+        .container-box:nth-child(1),
+        .container-box:nth-child(2),
+        .container-box:nth-child(3) {
+          display: none;
+        }
+
+        span {
+          padding: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (width <=700px) and (orientation: portrait) {
+  .myMain {
+    .main-left {
+      display: none;
+    }
+
+
+    .main-center {
+      flex-basis: 70%;
+
+      .myForm {
+        width: 70%;
+      }
+    }
+
+    .main-right {
+      flex-basis: 30%;
+    }
+  }
+}
