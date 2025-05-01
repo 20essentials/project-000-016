@@ -1,7 +1,6 @@
-body,
-html {
-  width: 100%;
-  height: 100%;
+body {
+  margin: 0;
+  height: 100vh;
 }
 
 * {
@@ -10,15 +9,16 @@ html {
   box-sizing: border-box;
 }
 
-
 .myMain {
   display: flex;
   height: 100vh;
+  width: 100%;
+  overflow: hidden;
 
   .main-left,
   .main-center,
   .main-right {
-    flex-basis: 33%;
+    flex-basis: 33.333333%;
   }
 
   .main-left {
@@ -69,7 +69,7 @@ html {
 
     input,
     span {
-      transition: .5s;
+      transition: 0.5s;
     }
 
     legend {
@@ -77,12 +77,8 @@ html {
       font-size: 1.5rem;
       font-family: arial;
       font-weight: 900;
-      text-shadow: 0 1px 0px gray,
-        0 2px 0px gray,
-        0 3px 0px gray,
-        0 4px 0px gray,
-        0 5px 0px gray,
-        0 6px 0px gray;
+      text-shadow: 0 1px 0px gray, 0 2px 0px gray, 0 3px 0px gray, 0 4px 0px gray,
+        0 5px 0px gray, 0 6px 0px gray;
     }
 
     input {
@@ -90,7 +86,7 @@ html {
       border: 3px solid #fff4;
       background-color: transparent;
       border-radius: 8px;
-      padding: .7rem;
+      padding: 0.7rem;
       outline: none;
       color: white;
     }
@@ -98,7 +94,7 @@ html {
     span {
       position: absolute;
       left: 0;
-      padding: .8rem;
+      padding: 0.8rem;
       color: #fff4;
     }
 
@@ -106,39 +102,38 @@ html {
     input:focus {
       border: 3px solid #04aa6d;
 
-      +span {
-        font-size: .7rem;
-        transform: translate(.75rem, -.9rem);
+      + span {
+        font-size: 0.7rem;
+        transform: translate(0.75rem, -0.9rem);
         padding: 4px 10px;
         color: #04aa6d;
         background-color: black;
-        letter-spacing: .2rem;
+        letter-spacing: 0.2rem;
       }
     }
 
     input.inva:invalid {
       border: 3px solid #f00;
 
-      +span {
+      + span {
         color: red;
       }
     }
 
-    input[type=submit] {
-      padding: .8rem;
+    input[type='submit'] {
+      padding: 0.8rem;
       width: 40%;
       background-color: #04aa6d;
       outline: none;
       border-radius: 999px;
       border: none;
-      transition: .5s;
+      transition: 0.5s;
 
       &:hover {
         filter: brightness(130%);
       }
     }
   }
-
 
   .main-right {
     background-color: magenta;
@@ -181,8 +176,6 @@ html {
       right: 0;
     }
 
-
-
     .cuadrado {
       width: 100%;
       height: 100%;
@@ -191,7 +184,6 @@ html {
       background-color: black;
     }
   }
-
 }
 
 @keyframes colorearHaciaAbajo {
@@ -239,7 +231,6 @@ html {
   .myMain {
     .main-center {
       .myForm {
-
         .container-box:nth-child(1),
         .container-box:nth-child(2),
         .container-box:nth-child(3) {
@@ -259,7 +250,6 @@ html {
     .main-left {
       display: none;
     }
-
 
     .main-center {
       flex-basis: 70%;
